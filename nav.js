@@ -4,7 +4,7 @@
    Chargée par chaque outil via :
      <script src="https://cds-fleurier.github.io/0to100-hub/nav.js" defer></script>
 
-   - injecte une barre fixe en bas (4 onglets), onglet actif détecté par l'URL
+   - injecte une barre fixe en bas (⛰️ accueil + 4 onglets), onglet actif détecté par l'URL
    - ajoute un padding-bottom au <body> pour ne rien masquer
    - expose --hub-nav-h (hauteur de la barre) pour les éléments fixes des apps
    - masquée si <body class="focus-mode"> (session player en séance)
@@ -16,6 +16,7 @@
   if (document.getElementById("hub-nav")) return;
 
   var BASE = "https://cds-fleurier.github.io/";
+  var HOME = { id: "hub", label: "Accueil", icon: "⛰️", path: "0to100-hub/" };
   var TOOLS = [
     { id: "calendrier", label: "Calendrier",   icon: "📅", path: "calendar-0-to-100-app/" },
     { id: "carte",      label: "Carte",        icon: "🗺️", path: "carte-participants-0to100/" },
@@ -36,6 +37,8 @@
       "font-family:'Inter',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}",
     "#hub-nav ul{list-style:none;margin:0 auto;padding:0;max-width:560px;height:100%;display:flex;align-items:stretch;gap:2px}",
     "#hub-nav li{flex:1;min-width:0}",
+    "#hub-nav li.hub-home{flex:0 0 auto;width:46px;border-right:1px solid rgba(255,255,255,.09);margin-right:4px;padding-right:4px;box-sizing:content-box}",
+    "#hub-nav li.hub-home .hub-lbl{display:none}",
     "#hub-nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;height:100%;",
       "border-radius:12px;text-decoration:none;color:#8a97a8;font-size:10.5px;font-weight:600;letter-spacing:.2px;",
       "white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background .15s,color .15s;-webkit-tap-highlight-color:transparent}",
@@ -62,9 +65,11 @@
   nav.id = "hub-nav";
   nav.setAttribute("aria-label", "Outils de la team");
   var ul = document.createElement("ul");
-  TOOLS.forEach(function (t) {
+  [HOME].concat(TOOLS).forEach(function (t) {
     var li = document.createElement("li");
+    if (t === HOME) li.className = "hub-home";
     var a = document.createElement("a");
+    if (t === HOME) { a.title = "Accueil des outils"; a.setAttribute("aria-label", "Accueil des outils"); }
     a.href = BASE + t.path;
     a.className = isActive(t) ? "is-active" : "";
     if (isActive(t)) a.setAttribute("aria-current", "page");
