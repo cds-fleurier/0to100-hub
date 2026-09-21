@@ -26,3 +26,4 @@ Une ligne dans `TOOLS` (nav.js) + une tuile dans `index.html`. Rien à toucher d
 | Carte | `cds-fleurier/carte-participants-0to100` |
 | Qui court où | `cds-fleurier/qui-court-ou-0to100` |
 | Séances | `cds-fleurier/0to100-session-player-app` |
+| AntoninGPT (bonus, tuile seule, pas d'onglet) | `cds-fleurier/antonin-gpt` |

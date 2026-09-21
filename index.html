@@ -46,6 +46,10 @@
     .tile-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 22px; letter-spacing: .5px; text-transform: uppercase; line-height: 1; }
     .tile-desc { margin-top: 4px; color: var(--text-soft); font-size: 13px; line-height: 1.4; }
     .tile-arrow { color: var(--text-muted); font-size: 20px; flex: none; }
+    .bonus { display: grid; gap: 8px; margin-top: 6px; }
+    .bonus-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--text-muted); text-align: center; }
+    .tile--bonus { border-style: dashed; background: var(--surface-lo); }
+    .tile--bonus .tile-ico { background: rgba(168,50,79,.18); border-color: rgba(168,50,79,.45); }
     .tip { text-align: center; color: var(--text-muted); font-size: 12px; line-height: 1.55; padding-top: 6px; }
     .tip b { color: var(--text-soft); font-weight: 600; }
   </style>
@@ -80,6 +84,15 @@
         <span class="tile-arrow" aria-hidden="true">›</span>
       </a>
     </nav>
+
+    <section class="bonus" aria-label="Bonus">
+      <h2 class="bonus-title">Bonus</h2>
+      <a class="tile tile--bonus" href="https://cds-fleurier.github.io/antonin-gpt/">
+        <span class="tile-ico" aria-hidden="true">🩺</span>
+        <span class="tile-body"><span class="tile-title">AntoninGPT</span><span class="tile-desc">Antonin se repose ? Son remplaçant te propose un exercice de kiné… et le vin qui va avec. À prendre au sérieux avec modération.</span></span>
+        <span class="tile-arrow" aria-hidden="true">›</span>
+      </a>
+    </section>
 
     <p class="tip"><b>Astuce :</b> ajoute cette page à l'écran d'accueil de ton téléphone<br />(Safari : Partager → « Sur l'écran d'accueil »).</p>
   </div>
