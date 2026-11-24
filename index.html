@@ -7,6 +7,8 @@
   <meta name="description" content="Les outils de la team 0 to 100 & 0 to 40 : calendrier d'entraînement, carte des participants, courses de préparation, séances." />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" content="#07090e" />
+  <link rel="preconnect" href="https://script.google.com">
+  <link rel="preconnect" href="https://script.googleusercontent.com" crossorigin>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⛰️%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -98,6 +100,31 @@
 
     <p class="tip"><b>Astuce :</b> ajoute cette page à l'écran d'accueil de ton téléphone<br />(Safari : Partager → « Sur l'écran d'accueil »).</p>
   </div>
+  <script>
+    /* Préchauffage (24/11/2026) : pendant qu'on lit l'accueil, on récupère en arrière-plan les
+       choix de courses de la team (Apps Script de « Qui court où », 2-3 s) et on les range dans le
+       cache partagé `team_choices_cache` (même origine que le calendrier et Qui court où, même format :
+       { at, choices }). Les deux apps s'affichent alors instantanément. Silencieux si ça échoue. */
+    (function () {
+      var API = "https://script.google.com/macros/s/AKfycbwS1c6LgGqqLaanrQvfPyprFUqocJZlvQG0sDPcZbSrqKRtCY8FmhBBWgBUd0diy5n3/exec";
+      var KEY = "team_choices_cache", FRESH_MS = 60 * 1000;
+      try {
+        var old = JSON.parse(localStorage.getItem(KEY) || "null");
+        if (old && Date.now() - old.at < FRESH_MS) return;
+      } catch (e) { /* stockage indisponible : on tente quand même */ }
+      if (!window.fetch) return;
+      var ctrl = window.AbortController ? new AbortController() : null;
+      if (ctrl) setTimeout(function () { ctrl.abort(); }, 15000);
+      fetch(API, ctrl ? { signal: ctrl.signal } : {})
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data && data.ok && data.choices) {
+            try { localStorage.setItem(KEY, JSON.stringify({ at: Date.now(), choices: data.choices })); } catch (e) {}
+          }
+        })
+        .catch(function () {});
+    })();
+  </script>
   <script src="nav.js" defer></script>
 </body>
 </html>

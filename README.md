@@ -33,3 +33,5 @@ Une ligne dans `TOOLS` (nav.js) + une tuile dans `index.html`. Rien à toucher d
 - 2026-11-24 : accueil — titre et description des tuiles sur deux lignes (`display:block`, ils étaient
   collés sur mobile), `--text-muted` #44505f → #7a8798 (contraste lisible), favicon. `nav.js` inchangé.
 - 2026-09-21 : création du hub, barre partagée, bouton accueil, tuile bonus AntoninGPT.
+
+- 24/11/2026 : préchauffage — l'accueil récupère en arrière-plan les choix de courses (Apps Script de Qui court où) et les range dans le cache partagé `team_choices_cache` ({at, choices}, même format que le calendrier et Qui court où v1.11.0) ; preconnect vers Google. ⚠️ L'URL de l'Apps Script est recopiée ici : à mettre à jour si le déploiement change d'URL.
