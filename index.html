@@ -7,6 +7,7 @@
   <meta name="description" content="Les outils de la team 0 to 100 & 0 to 40 : calendrier d'entraînement, carte des participants, courses de préparation, séances." />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" content="#07090e" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⛰️%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
@@ -14,7 +15,7 @@
     :root {
       --bg: #07090e; --surface: rgba(16,22,34,.88); --surface-lo: rgba(12,17,27,.7);
       --border: rgba(255,255,255,.08); --border-hi: rgba(255,255,255,.14);
-      --text: #e8edf5; --text-soft: #8a97a8; --text-muted: #44505f;
+      --text: #e8edf5; --text-soft: #8a97a8; --text-muted: #7a8798;
       --accent: #ff6b00; --accent-dim: rgba(255,107,0,.38); --accent-soft: rgba(255,107,0,.12);
       --gold: #f5c518; --radius-card: 22px;
     }
@@ -43,6 +44,7 @@
     .tile:active { transform: scale(.99); }
     .tile-ico { width: 52px; height: 52px; flex: none; display: grid; place-items: center; font-size: 26px; border-radius: 16px; background: var(--accent-soft); border: 1px solid var(--accent-dim); }
     .tile-body { min-width: 0; flex: 1; }
+    .tile-title, .tile-desc { display: block; }
     .tile-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 22px; letter-spacing: .5px; text-transform: uppercase; line-height: 1; }
     .tile-desc { margin-top: 4px; color: var(--text-soft); font-size: 13px; line-height: 1.4; }
     .tile-arrow { color: var(--text-muted); font-size: 20px; flex: none; }

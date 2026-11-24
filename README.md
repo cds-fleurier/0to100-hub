@@ -27,3 +27,9 @@ Une ligne dans `TOOLS` (nav.js) + une tuile dans `index.html`. Rien à toucher d
 | Qui court où | `cds-fleurier/qui-court-ou-0to100` |
 | Séances | `cds-fleurier/0to100-session-player-app` |
 | AntoninGPT (bonus, tuile seule, pas d'onglet) | `cds-fleurier/antonin-gpt` |
+
+## Journal
+
+- 2026-11-24 : accueil — titre et description des tuiles sur deux lignes (`display:block`, ils étaient
+  collés sur mobile), `--text-muted` #44505f → #7a8798 (contraste lisible), favicon. `nav.js` inchangé.
+- 2026-09-21 : création du hub, barre partagée, bouton accueil, tuile bonus AntoninGPT.
